@@ -1,19 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 //User interface
 public class RockPaperScissorGUI extends JFrame {
     JButton rockButton, paperButton, scissorButton;
 
+    JLabel computerChoice;
+
     public RockPaperScissorGUI(){
         super("Rock Paper Scissor");
 
         setSize(450, 574);
-
         setLayout(null);
-
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-
         setLocationRelativeTo(null);
 
         addGuiComponents();
@@ -30,7 +31,7 @@ public class RockPaperScissorGUI extends JFrame {
 
         add(computerScoreLabel);
 
-        JLabel computerChoice = new JLabel("?");
+        computerChoice = new JLabel("?");
         computerChoice.setBounds(175,118,98,81);
         computerChoice.setFont(new Font("Dialog", Font.PLAIN, 18));
         computerChoice.setHorizontalAlignment(SwingConstants.CENTER);
@@ -67,5 +68,37 @@ public class RockPaperScissorGUI extends JFrame {
 
         add(scissorButton);
 
+        showDialog("Test message");
+
     }
+
+    //Display dialog
+    private void showDialog(String msg){
+        JDialog resultDialog = new JDialog(this, "Result", true);
+        resultDialog.setSize(227,124);
+        resultDialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+        resultDialog.setResizable(false);
+
+        JLabel resultLabel = new JLabel(msg);
+        resultLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+        resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        resultDialog.add(resultLabel, BorderLayout.CENTER);
+
+        JButton tryAgainButton = new JButton("Try again?");
+        tryAgainButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                computerChoice.setText("?");
+
+                resultDialog.dispose();
+            }
+        });
+
+        resultDialog.add(tryAgainButton, BorderLayout.SOUTH);
+
+        resultDialog.setLocationRelativeTo(this);
+        resultDialog.setVisible(true);
+
+    }
+
 }
