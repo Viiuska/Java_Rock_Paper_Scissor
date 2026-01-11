@@ -20,6 +20,7 @@ public class RockPaperScissorGUI extends JFrame {
 
     //GUI elements
     private  void addGuiComponents(){
+        //Computer
         JLabel computerScoreLabel = new JLabel("Computer: 0");
         computerScoreLabel.setBounds(0,43,450,30);
         computerScoreLabel.setFont(new Font("Dialog", Font.BOLD, 26));
@@ -36,5 +37,13 @@ public class RockPaperScissorGUI extends JFrame {
 
         add(computerChoice);
 
+
+        //Player
+        JLabel playerScoreLabel = new JLabel("Player: 0");
+        playerScoreLabel.setBounds(0,317,450,30);
+        playerScoreLabel.setFont(new Font("Dialog", Font.BOLD, 26));
+        playerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
+
+        add(playerScoreLabel);
     }
 }
