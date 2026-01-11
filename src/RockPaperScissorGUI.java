@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-//User interface
+//User interface, Frontend
 public class RockPaperScissorGUI extends JFrame {
     JButton rockButton, paperButton, scissorButton;
 
