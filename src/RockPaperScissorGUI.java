@@ -4,10 +4,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 //User interface, Frontend
-public class RockPaperScissorGUI extends JFrame {
+public class RockPaperScissorGUI extends JFrame implements ActionListener {
     JButton rockButton, paperButton, scissorButton;
 
     JLabel computerChoice;
+
+    JLabel computerScoreLabel, playerScoreLabel;
+
+    RockPaperScissor rockPaperScissor;
 
     public RockPaperScissorGUI(){
         super("Rock Paper Scissor");
@@ -17,6 +21,8 @@ public class RockPaperScissorGUI extends JFrame {
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
 
+        rockPaperScissor = new RockPaperScissor();
+
         addGuiComponents();
 
     }
@@ -24,7 +30,7 @@ public class RockPaperScissorGUI extends JFrame {
     //GUI elements
     private  void addGuiComponents(){
         //Computer
-        JLabel computerScoreLabel = new JLabel("Computer: 0");
+        computerScoreLabel = new JLabel("Computer: 0");
         computerScoreLabel.setBounds(0,43,450,30);
         computerScoreLabel.setFont(new Font("Dialog", Font.BOLD, 26));
         computerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -42,7 +48,7 @@ public class RockPaperScissorGUI extends JFrame {
 
 
         //Player
-        JLabel playerScoreLabel = new JLabel("Player: 0");
+        playerScoreLabel = new JLabel("Player: 0");
         playerScoreLabel.setBounds(0,317,450,30);
         playerScoreLabel.setFont(new Font("Dialog", Font.BOLD, 26));
         playerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
@@ -53,22 +59,21 @@ public class RockPaperScissorGUI extends JFrame {
         rockButton = new JButton("Rock");
         rockButton.setBounds(40,387,105,81);
         rockButton.setFont(new Font("Dialog", Font.PLAIN, 18));
-
+        rockButton.addActionListener(this);
         add(rockButton);
 
         paperButton = new JButton("Paper");
         paperButton.setBounds(165,387,105,81);
         paperButton.setFont(new Font("Dialog", Font.PLAIN, 18));
-
+        paperButton.addActionListener(this);
         add(paperButton);
 
         scissorButton = new JButton("Scissor");
         scissorButton.setBounds(290,387,105,81);
         scissorButton.setFont(new Font("Dialog", Font.PLAIN, 18));
-
+        scissorButton.addActionListener(this);
         add(scissorButton);
 
-        showDialog("Test message");
 
     }
 
@@ -101,4 +106,19 @@ public class RockPaperScissorGUI extends JFrame {
 
     }
 
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        String playerChoice = e.getActionCommand().toString();
+
+        String result = rockPaperScissor.playRockPaperScissor(playerChoice);
+
+        computerChoice.setText(rockPaperScissor.getComputerChoice());
+
+        computerScoreLabel.setText("Computer: "+ rockPaperScissor.getComputerChoice());
+        playerScoreLabel.setText("Player: "+ rockPaperScissor.getPlayerScore());
+
+        showDialog(result);
+
+
+    }
 }
