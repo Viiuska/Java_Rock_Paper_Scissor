@@ -32,17 +32,17 @@ public class RockPaperScissorGUI extends JFrame implements ActionListener {
         //Computer
         computerScoreLabel = new JLabel("Computer: 0");
         computerScoreLabel.setBounds(0,43,450,30);
-        computerScoreLabel.setFont(new Font("Dialog", Font.BOLD, 26));
+        computerScoreLabel.setFont(new Font("Monospaced", Font.BOLD, 26));
         computerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(computerScoreLabel);
 
         computerChoice = new JLabel("?");
         computerChoice.setBounds(175,118,98,81);
-        computerChoice.setFont(new Font("Dialog", Font.PLAIN, 18));
+        computerChoice.setFont(new Font("Monospaced", Font.PLAIN, 18));
         computerChoice.setHorizontalAlignment(SwingConstants.CENTER);
 
-        computerChoice.setBorder(BorderFactory.createLineBorder(Color.BLUE));
+        computerChoice.setBorder(BorderFactory.createLineBorder(Color.darkGray));
 
         add(computerChoice);
 
@@ -50,30 +50,29 @@ public class RockPaperScissorGUI extends JFrame implements ActionListener {
         //Player
         playerScoreLabel = new JLabel("Player: 0");
         playerScoreLabel.setBounds(0,317,450,30);
-        playerScoreLabel.setFont(new Font("Dialog", Font.BOLD, 26));
+        playerScoreLabel.setFont(new Font("Monospaced", Font.BOLD, 26));
         playerScoreLabel.setHorizontalAlignment(SwingConstants.CENTER);
 
         add(playerScoreLabel);
 
         //Player Buttons
         rockButton = new JButton("Rock");
-        rockButton.setBounds(40,387,105,81);
-        rockButton.setFont(new Font("Dialog", Font.PLAIN, 18));
+        rockButton.setBounds(40,387,115,81);
+        rockButton.setFont(new Font("Monospaced", Font.PLAIN, 18));
         rockButton.addActionListener(this);
         add(rockButton);
 
         paperButton = new JButton("Paper");
-        paperButton.setBounds(165,387,105,81);
-        paperButton.setFont(new Font("Dialog", Font.PLAIN, 18));
+        paperButton.setBounds(165,387,115,81);
+        paperButton.setFont(new Font("Monospaced", Font.PLAIN, 18));
         paperButton.addActionListener(this);
         add(paperButton);
 
         scissorButton = new JButton("Scissor");
-        scissorButton.setBounds(290,387,105,81);
-        scissorButton.setFont(new Font("Dialog", Font.PLAIN, 18));
+        scissorButton.setBounds(290,387,115,81);
+        scissorButton.setFont(new Font("Monospaced", Font.PLAIN, 18));
         scissorButton.addActionListener(this);
         add(scissorButton);
-
 
     }
 
@@ -85,7 +84,7 @@ public class RockPaperScissorGUI extends JFrame implements ActionListener {
         resultDialog.setResizable(false);
 
         JLabel resultLabel = new JLabel(msg);
-        resultLabel.setFont(new Font("Dialog", Font.BOLD, 18));
+        resultLabel.setFont(new Font("Monospaced", Font.BOLD, 18));
         resultLabel.setHorizontalAlignment(SwingConstants.CENTER);
         resultDialog.add(resultLabel, BorderLayout.CENTER);
 
@@ -106,6 +105,7 @@ public class RockPaperScissorGUI extends JFrame implements ActionListener {
 
     }
 
+
     @Override
     public void actionPerformed(ActionEvent e) {
         String playerChoice = e.getActionCommand().toString();
@@ -118,7 +118,6 @@ public class RockPaperScissorGUI extends JFrame implements ActionListener {
         playerScoreLabel.setText("Player: "+ rockPaperScissor.getPlayerScore());
 
         showDialog(result);
-
 
     }
 }
