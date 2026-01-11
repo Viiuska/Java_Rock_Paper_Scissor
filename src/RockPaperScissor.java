@@ -5,6 +5,18 @@ import java.util.SimpleTimeZone;
 public class RockPaperScissor {
     private static final String[] computerChoices = {"Rock", "Paper", "Scissor"};
 
+    public String getComputerChoice() {
+        return computerChoice;
+    }
+
+    public int getComputerScore() {
+        return computerScore;
+    }
+
+    public int getPlayerScore() {
+        return playerScore;
+    }
+
     private String computerChoice;
 
     private int computerScore, playerScore;
