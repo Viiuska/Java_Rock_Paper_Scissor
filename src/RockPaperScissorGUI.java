@@ -114,7 +114,7 @@ public class RockPaperScissorGUI extends JFrame implements ActionListener {
 
         computerChoice.setText(rockPaperScissor.getComputerChoice());
 
-        computerScoreLabel.setText("Computer: "+ rockPaperScissor.getComputerChoice());
+        computerScoreLabel.setText("Computer: "+ rockPaperScissor.getComputerScore());
         playerScoreLabel.setText("Player: "+ rockPaperScissor.getPlayerScore());
 
         showDialog(result);
